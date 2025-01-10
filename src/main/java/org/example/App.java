@@ -17,6 +17,6 @@ public class App
         Dashboard dashboard=new Dashboard();
 //        model.createAdmin("abishek","acer@001","ak2017926@gmail.com");
 
-        System.out.println( "Hello World! jbyfuyfyu dfgdfgd" );
+        System.out.println( "Hello World!" );
     }
 }
