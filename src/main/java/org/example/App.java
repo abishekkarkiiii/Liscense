@@ -1,12 +1,10 @@
 package org.example;
 
-import org.example.Model.AdminModel;
 import org.example.View.Dashboard;
 
-import java.sql.Connection;
-
 /**
- * Hello world!
+ * Hello world!1
+ * 
  *
  */
 public class App 
@@ -15,7 +13,7 @@ public class App
     {
 //        AdminModel model= new AdminModel();
         Dashboard dashboard=new Dashboard();
-//        model.createAdmin("abishek","acer@001","ak2017926@gmail.com");
+//        model.createAdmin("Trijal","acer@001","bajracharyatrijal@gmail.com");
 
         System.out.println( "Hello World!" );
     }

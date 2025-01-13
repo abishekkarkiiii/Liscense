@@ -26,5 +26,5 @@ public class Admin {
         this.userName = userName;
     }
  
-    
+    //Yesari ni garna chai milxa but i prefer lombok
 }

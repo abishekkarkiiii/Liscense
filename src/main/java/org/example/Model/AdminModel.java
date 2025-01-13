@@ -1,9 +1,10 @@
 package org.example.Model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import org.example.Entity.User;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminModel {
 
@@ -48,7 +49,7 @@ public class AdminModel {
         }
     }
 
-    private Connection connectionGiver() {
+    public Connection connectionGiver() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Connection Successful");
@@ -59,6 +60,46 @@ public class AdminModel {
         } catch (ClassNotFoundException e) {
             System.out.println("Driver can't be loaded: " + e.getMessage());
             return null;
+        }
+    }
+
+
+    public List<User> getAllUser() {
+        List<User> users = new ArrayList<>();
+        try {
+            // Execute the SQL query
+            ResultSet resultSet = connectionGiver()
+                    .createStatement()
+                    .executeQuery("SELECT * FROM User");
+
+            // Iterate through the result set and map data to User objects
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getInt("UserID"));
+                user.setUsername(resultSet.getString("UserName"));
+                user.setPassword(resultSet.getString("Password"));
+                user.setEmail(resultSet.getString("Email"));
+                user.setAge(resultSet.getInt("Age"));
+                user.setCitizenshipNumber(resultSet.getString("CitizenshipNumber"));
+                user.setStatus(resultSet.getString("Status"));
+                user.setCreateDate(resultSet.getTimestamp("CreatedAt").toString());
+                // Add the User object to the list
+                users.add(user);
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        return users;
+    }
+
+    public void Approve(int id,boolean check){
+        try(PreparedStatement statement=connectionGiver().prepareStatement("update User set Status=? where UserId=?")){
+            statement.setString(1, check ? "passed" : "failed");
+            statement.setInt(2,id);
+            System.out.println(statement.executeUpdate()!=0?"Approved":"DisApproved");
+        }catch (SQLException exception){
+            exception.printStackTrace();
         }
     }
 }
