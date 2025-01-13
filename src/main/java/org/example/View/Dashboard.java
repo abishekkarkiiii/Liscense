@@ -1,10 +1,10 @@
 package org.example.View;
 
+import java.util.Scanner;
+
 import org.example.Entity.User;
 import org.example.Model.Logic;
 import org.example.Model.UserModel;
-
-import java.util.Scanner;
 
 public class Dashboard {
 

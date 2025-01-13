@@ -70,8 +70,17 @@ public class Logic {
         if (input.nextInt() == 1) {
             System.out.print("Enter User ID to approve: ");
             int userId = input.nextInt();
-            adminModel.Approve(userId, true);
-            System.out.println("User approved successfully.");
+            System.out.println("Press Y to Approved Else Press N to Fail");
+            boolean check=false;
+            if(input.next().toLowerCase(Locale.ROOT).equals("y")){
+               check=true;
+                System.out.println("User approved successfully.");
+            }else {
+                adminModel.Approve(userId,check);
+                System.out.println("User Failed Updated");
+
+            }
+
         }
     }
 
