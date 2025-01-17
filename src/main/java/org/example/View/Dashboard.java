@@ -26,10 +26,12 @@ public class Dashboard {
             System.out.println("2. Apply for License");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
+           try{
 
+           
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline character
-
+        
             switch (choice) {
                 case 1:
                     login(scanner);
@@ -44,6 +46,10 @@ public class Dashboard {
                 default:
                     System.out.println("Invalid input! Please try again.");
             }
+        }catch(Exception e){
+            System.out.println("Please enter once again");
+
+        }
         }
     }
 

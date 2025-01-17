@@ -21,7 +21,7 @@ public class UserModel {
                 //MethodChaning Gareko taki direct user buld hos;
                 return User.builder().username(resultSet.getString("UserName"))
                         .age(resultSet.findColumn("Age")).Status(statusCheck(resultSet.getString("Status")))
-                        .email(resultSet.getString("Email")).Id(resultSet.getInt("UserId")).citizenshipNumber(resultSet.getString("CitizenshipNumber`````````")).build();
+                        .email(resultSet.getString("Email")).Id(resultSet.getInt("UserId")).citizenshipNumber(resultSet.getString("CitizenshipNumber")).build();
             }
         }catch(Exception exception){
             exception.printStackTrace();
