@@ -85,6 +85,8 @@ public class AdminModel {
                 user.setCreateDate(resultSet.getTimestamp("CreatedAt").toString());
                 // Add the User object to the list
                 users.add(user);
+
+                //user update ko liscense garna baki xa
             }
         } catch (SQLException exception) {
             exception.printStackTrace();
