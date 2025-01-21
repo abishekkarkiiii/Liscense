@@ -83,7 +83,7 @@ public class AdminModel {
                 user.setCitizenshipNumber(resultSet.getString("CitizenshipNumber"));
                 user.setStatus(resultSet.getString("Status"));
                 user.setCreateDate(resultSet.getTimestamp("CreatedAt").toString());
-                // Add the User object to the list
+                // Add the User object to the li
                 users.add(user);
 
                 //user update ko liscense garna baki xa
